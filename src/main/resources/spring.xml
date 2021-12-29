@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:custom="http://www.xuziyang.com/schema/custom"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.xuziyang.com/schema/custom  http://www.xuziyang.com/schema/custom.xsd">
+
+
+    <!--自定义标签-->
+    <custom:student id="stu01" name="张三" age="18"/>
+
+    <!-- 自定义属性编辑器-->
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="com.xzy.spring.custom.property_editor.Car"
+                       value="com.xzy.spring.custom.property_editor.CustomCarEditor"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="boss" class="com.xzy.spring.custom.property_editor.Boss">
+        <property name="name" value="John"/>
+        <property name="car" value="奔驰S,200,1999.999"/>
+    </bean>
+    <!-- 自定义属性编辑器-->
+
+</beans>
