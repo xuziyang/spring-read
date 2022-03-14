@@ -1,10 +1,11 @@
 package com.xzy.spring;
 
+import com.xzy.spring.aop.Waiter;
 import com.xzy.spring.custom.xml.Student;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Application {
+public class XmlApplication {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         
@@ -13,6 +14,9 @@ public class Application {
     
         Object boss = context.getBean("boss");
         System.out.println(boss);
-        
+
+        Waiter waiter = context.getBean(Waiter.class);
+        waiter.greetTo("xzy");
+
     }
 }
