@@ -23,4 +23,12 @@
     </bean>
     <!-- 自定义属性编辑器-->
 
+    <bean id="lifeCycleBean" class="com.xzy.spring.lifecycle.LifeCycleBean"
+          destroy-method="myDestroy"
+          init-method="myInit">
+        <constructor-arg value="小小"/>
+    </bean>
+
+    <bean id="lifeCycleBeanPostProcessor" class="com.xzy.spring.lifecycle.LifeCycleBeanPostProcessor"/>
+
 </beans>
