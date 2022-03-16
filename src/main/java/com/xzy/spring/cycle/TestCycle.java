@@ -13,7 +13,6 @@ public class TestCycle {
         ApplicationContext ac = new ClassPathXmlApplicationContext("cycle.xml");
         A a = ac.getBean(A.class);
         System.out.println(a.getB());
-        System.out.println(a.getName());
         B b = ac.getBean(B.class);
         System.out.println(b.getA());
     }
